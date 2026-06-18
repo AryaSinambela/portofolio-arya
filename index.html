@@ -10,22 +10,22 @@
     <style>
         /* --- Palet Warna Modern --- */
         :root {
-            --bg-color: #f8fafc; /* Soft White/Gray */
-            --text-color: #0f172a; /* Slate Dark */
+            --bg-color: #f8fafc;
+            --text-color: #0f172a;
             --card-bg: #ffffff;
             --nav-bg: rgba(255, 255, 255, 0.9);
-            --accent-color: #2563eb; /* Royal Blue */
+            --accent-color: #2563eb;
             --accent-hover: #1d4ed8;
             --border-color: #e2e8f0;
             --shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
         }
 
         [data-theme="dark"] {
-            --bg-color: #0f172a; /* Deep Navy */
+            --bg-color: #0f172a;
             --text-color: #f8fafc;
             --card-bg: #1e293b;
             --nav-bg: rgba(15, 23, 42, 0.9);
-            --accent-color: #3b82f6; /* Bright Blue */
+            --accent-color: #3b82f6;
             --accent-hover: #60a5fa;
             --border-color: #334155;
             --shadow: 0 10px 15px -3px rgba(0,0,0,0.5);
@@ -33,7 +33,7 @@
 
         /* --- Pengaturan Dasar & Smooth Scroll --- */
         html {
-            scroll-behavior: smooth; /* Animasi gulir antar menu */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -74,7 +74,6 @@
             color: var(--accent-color);
         }
 
-        /* Tombol Theme Toggle */
         #theme-toggle {
             background: var(--accent-color);
             color: #fff;
@@ -97,7 +96,7 @@
             width: 85%;
             max-width: 1000px;
             margin: 0 auto;
-            padding-top: 80px; /* Jarak untuk navigasi sticky */
+            padding-top: 80px;
         }
 
         section {
@@ -117,7 +116,51 @@
             margin-bottom: 30px;
         }
         
-        p { font-size: 1.1rem; line-height: 1.7; }
+        p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 15px; }
+
+        /* --- Desain Grid Informasi Pribadi --- */
+        .personal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            margin: 30px 0;
+            transition: background-color 0.4s ease;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .info-value a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-value a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
 
         /* --- Desain Kartu (Card) --- */
         .card {
@@ -177,10 +220,48 @@
         <!-- SECTION 1: Beranda -->
         <section id="beranda" class="fade-in">
             <h1>Halo, saya Arya! 👋</h1>
-            <p style="font-size: 1.3rem; color: var(--accent-color); font-weight: bold;">Mahasiswa Sistem Informasi | Software Development & UI/UX Design</p>
-            <p>Saya memiliki antusiasme besar dalam membangun solusi perangkat lunak yang efisien dan merancang antarmuka pengguna yang intuitif. Memadukan logika pemrograman dengan pemikiran desain untuk menciptakan pengalaman digital yang utuh.</p>
+            <p style="font-size: 1.4rem; color: var(--accent-color); font-weight: bold; margin-top: 0;">Backend Developer & Systems Analyst</p>
             
-            <div class="tech-stack">
+            <p>Mempunyai keahlian dasar yang kuat dalam pengembangan perangkat lunak, manajemen basis data, dan desain UI/UX. Berpengalaman dalam pembuatan konten digital serta aktif dalam organisasi kemahasiswaan.</p>
+            <p>Saya senang memanfaatkan kreativitas serta penyelesaian masalah secara sistematis di lingkungan TI profesional. Melalui perkuliahan di Institut Teknologi Del, saya telah berhasil mengembangkan sistem manajemen backend menggunakan Java dan merancang arsitektur basis data relasional yang efisien.</p>
+            
+            <!-- Grid Informasi Pribadi Baru -->
+            <div class="personal-info-grid fade-in">
+                <div class="info-item">
+                    <span class="info-label">Birthday</span>
+                    <span class="info-value">26 October 2006</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Age</span>
+                    <span class="info-value">19</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">City</span>
+                    <span class="info-value">Pematangsiantar, North Sumatra</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Degree</span>
+                    <span class="info-value">Bachelor (Undergraduate)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Email</span>
+                    <span class="info-value"><a href="mailto:aryasinambela26@gmail.com">aryasinambela26@gmail.com</a></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Freelance</span>
+                    <span class="info-value">Available</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">LinkedIn</span>
+                    <span class="info-value"><a href="https://linkedin.com/in/arya-pratama-sinambela" target="_blank">linkedin.com/in/arya-pratama-sinambela</a></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">GitHub</span>
+                    <span class="info-value"><a href="https://github.com/AryaSinambela" target="_blank">github.com/AryaSinambela</a></span>
+                </div>
+            </div>
+
+            <div class="tech-stack fade-in">
                 <div class="tech-icon"><i class="devicon-java-plain colored"></i><p>Java</p></div>
                 <div class="tech-icon"><i class="devicon-postgresql-plain colored"></i><p>PostgreSQL</p></div>
                 <div class="tech-icon"><i class="devicon-cplusplus-plain colored"></i><p>C++</p></div>
@@ -246,7 +327,7 @@
         const faders = document.querySelectorAll('.fade-in');
 
         const appearOptions = {
-            threshold: 0.2, // Elemen muncul saat 20% bagiannya terlihat di layar
+            threshold: 0.2,
             rootMargin: "0px 0px -50px 0px"
         };
 
