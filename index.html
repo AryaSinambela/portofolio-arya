@@ -1,97 +1,219 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="light">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio | Arya Pratama Sinambela</title>
+    <!-- Memuat ikon teknologi dari Devicon -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    
     <style>
+        /* CSS Variables untuk Light & Dark Mode */
+        :root {
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --card-bg: #fff;
+            --header-bg: #2c3e50;
+            --header-text: #fff;
+            --accent-color: #3498db;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #f4f4f4;
+            --card-bg: #2c2c2c;
+            --header-bg: #111;
+            --header-text: #f4f4f4;
+            --accent-color: #2980b9;
+            --shadow: 0 4px 6px rgba(255,255,255,0.05);
+        }
+
+        /* Pengaturan Dasar & Animasi Transisi Tema */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         header {
-            background: #2c3e50;
-            color: #fff;
-            padding: 2rem 0;
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 3rem 0;
             text-align: center;
+            position: relative;
+            transition: background-color 0.3s ease;
         }
+
+        /* Tombol Dark Mode */
+        #theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        #theme-toggle:hover { background: #1f618d; }
+
         .container {
-            width: 80%;
+            width: 85%;
+            max-width: 1100px;
             margin: auto;
             overflow: hidden;
             padding: 2rem 0;
         }
-        .project-card, .experience-card {
-            background: #fff;
-            margin-bottom: 1.5rem;
-            padding: 1.5rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+        /* Desain Kartu (Card) */
+        .card {
+            background: var(--card-bg);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
-        h1, h2, h3 {
-            margin-top: 0;
+
+        h2 { border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; display: inline-block; }
+
+        /* Fitur Tech Stack */
+        .tech-stack {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+        .tech-icon {
+            font-size: 3rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .tech-icon:hover { transform: translateY(-5px); }
+        .tech-icon p { font-size: 0.9rem; margin-top: 5px; }
+
+        /* Pengaturan untuk Embed Iframe (Figma/YouTube) */
+        .embed-container {
+            position: relative;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+        iframe { border: none; width: 100%; border-radius: 8px; }
+
+        /* Kelas Animasi Scroll (Fade-In) */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
 
     <header>
+        <button id="theme-toggle">🌙 Mode Gelap</button>
         <h1>Arya Pratama Sinambela</h1>
         <p>Mahasiswa Sistem Informasi | Software Development & UI/UX Design</p>
     </header>
-    
-        <nav style="text-align: center; background: #34495e; padding: 1rem;">
-    <a href="index.html" style="color: white; margin: 0 15px; text-decoration: none;">Beranda</a>
-    <a href="proyek.html" style="color: white; margin: 0 15px; text-decoration: none;">Proyek</a>
-    <a href="pengalaman.html" style="color: white; margin: 0 15px; text-decoration: none;">Pengalaman</a>
-</nav>
-
 
     <div class="container">
-        <section id="tentang">
-            <h2>Tentang Saya</h2>
-            <p>Saya adalah mahasiswa Sistem Informasi yang memiliki ketertarikan mendalam dalam pengembangan perangkat lunak (Java, C++, SQL) dan desain UI/UX. Saya juga aktif sebagai pembuat konten dan memiliki pengalaman dalam mengelola proyek teknis maupun kreatif.</p>
-        </section>
-
-        <section id="pengalaman">
-            <h2>Pengalaman & Aktivitas</h2>
-            <div class="experience-card">
-                <h3>Divisi Multimedia BEM</h3>
-                <p>Terlibat dalam pengelolaan konten visual dan media untuk kegiatan organisasi kampus.</p>
-            </div>
-            <div class="experience-card">
-                <h3>Kandidat Google Student Ambassador 2026</h3>
-                <p>Mengikuti proses seleksi dan mengerjakan berbagai tantangan teknis serta pembuatan konten untuk program GSA.</p>
+        
+        <!-- Bagian Tech Stack -->
+        <section class="card fade-in">
+            <h2>Keahlian Teknologi</h2>
+            <p style="text-align: center;">Berikut adalah teknologi yang biasa saya gunakan dalam pengembangan perangkat lunak dan desain UI/UX.</p>
+            <div class="tech-stack">
+                <div class="tech-icon"><i class="devicon-java-plain colored"></i><p>Java</p></div>
+                <div class="tech-icon"><i class="devicon-cplusplus-plain colored"></i><p>C++</p></div>
+                <div class="tech-icon"><i class="devicon-postgresql-plain colored"></i><p>PostgreSQL</p></div>
+                <div class="tech-icon"><i class="devicon-figma-plain colored"></i><p>Figma</p></div>
+                <div class="tech-icon"><i class="devicon-vscode-plain colored"></i><p>VS Code</p></div>
             </div>
         </section>
 
-        <section id="proyek">
-            <h2>Proyek Utama</h2>
-            
-            <div class="project-card">
-                <h3>Aplikasi Del-Laundry</h3>
-                <p><strong>Teknologi:</strong> Java (OOP)</p>
-                <p>Mengembangkan sistem manajemen laundry menggunakan konsep Object-Oriented Programming dan *file persistence* untuk penyimpanan data.</p>
-            </div>
-
-            <div class="project-card">
-                <h3>Hotel Reservation System</h3>
-                <p><strong>Teknologi:</strong> Java (Multithreading)</p>
-                <p>Membangun sistem simulasi reservasi hotel yang mengimplementasikan *multithreading* dan *concurrency control* untuk menangani pemesanan tamu secara bersamaan.</p>
-            </div>
-
-            <div class="project-card">
-                <h3>Health-Tracking App Prototype</h3>
-                <p><strong>Teknologi:</strong> Figma, UI/UX Design Thinking</p>
-                <p>Merancang purwarupa (prototype) aplikasi pemantauan catatan kesehatan anak menggunakan metode *user journey mapping* dan pembuatan *user persona*.</p>
+        <!-- Bagian Embed UI/UX Prototype -->
+        <section class="card fade-in">
+            <h2>Portofolio UI/UX: Health-Tracking App</h2>
+            <p>Rancangan interaktif untuk pemantauan catatan kesehatan anak. Silakan coba berinteraksi langsung dengan *prototype* di bawah ini.</p>
+            <div class="embed-container">
+                <!-- Ganti URL 'src' di bawah ini dengan link embed Figma milikmu -->
+                <iframe height="450" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/CONTOH_LINK_FIGMA_KAMU" allowfullscreen></iframe>
             </div>
         </section>
+
+        <!-- Bagian Embed Multimedia / Video -->
+        <section class="card fade-in">
+            <h2>Karya Multimedia & Konten</h2>
+            <p>Selain menulis kode, saya juga memproduksi konten visual. Berikut adalah salah satu karya video (misalnya kampanye GSA atau konten YouTube lainnya).</p>
+            <div class="embed-container">
+                <!-- Ganti ID Video YouTube ('dQw4w9WgXcQ') dengan ID video aslimu -->
+                <iframe height="400" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Detail Proyek Java -->
+        <section class="card fade-in">
+            <h2>Pengembangan Perangkat Lunak</h2>
+            <h3>Aplikasi Del-Laundry & Hotel Reservation System</h3>
+            <p>Mengembangkan sistem berbasis Java yang menitikberatkan pada arsitektur <em>Object-Oriented Programming</em>, <em>file persistence</em>, serta penanganan <em>multithreading</em> untuk memastikan keandalan sistem saat menangani pemesanan tamu secara bersamaan.</p>
+        </section>
+
     </div>
 
+    <!-- JavaScript untuk Dark Mode dan Animasi Scroll -->
+    <script>
+        // 1. Fitur Dark Mode / Light Mode
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            if (currentTheme === 'light') {
+                htmlElement.setAttribute('data-theme', 'dark');
+                themeToggleBtn.textContent = '☀️ Mode Terang';
+            } else {
+                htmlElement.setAttribute('data-theme', 'light');
+                themeToggleBtn.textContent = '🌙 Mode Gelap';
+            }
+        });
+
+        // 2. Fitur Animasi Scroll (Intersection Observer)
+        const faders = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.15, // Animasi dimulai saat 15% elemen terlihat di layar
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target); // Hentikan observasi setelah animasi selesai
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
 </body>
 </html>
